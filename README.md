@@ -10,12 +10,13 @@
 <p align="center">
   <em>Le tool des flemmards, pour les flemmards.</em><br>
   Assistant de multibox pour <strong>Dofus Retro</strong> — overlay, switch de combat automatique,
-  AutoTrade par image, macros, presets, raccourcis & messages.
+  AutoTrade par image, switch sur MP reçu, enregistreur de macros, presets, raccourcis & messages.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-3.0.3-7C6CF6">
+  <img src="https://img.shields.io/badge/version-3.0.5-7C6CF6">
   <img src="https://img.shields.io/badge/python-3.12.10-blue">
+  <img src="https://img.shields.io/badge/langues-FR%20%7C%20EN%20%7C%20ES%20%7C%20DE%20%7C%20PT-success">
   <img src="https://img.shields.io/badge/OS-Windows-0078D6">
 </p>
 
@@ -35,30 +36,53 @@ Clic sur un pseudo = focus direct sur sa fenêtre. Clic sur le badge **DPF** = a
 
 ### A-Switch (focus de combat auto)
 Passe sur la bonne fenêtre dès que c'est son tour, **via les notifications Windows de Dofus** (aucune
-détection de pixel, donc léger et fiable). Tu peux désactiver le focus par perso.
+détection de pixel, donc léger et fiable). Le focus est réglable **par perso** (colonne *Focus Combat*).
 
 ### A-Trade (AutoTrade par image)
 Accepte les demandes d'échange **tout seul**, sans dépendre des notifications (qui sont bugguées sur
 les demandes répétées au même perso). DPF lit une petite zone de l'écran : dès qu'il voit le popup
-*« En attente de la réponse de &lt;pseudo&gt; »*, il **bascule sur la fenêtre du receveur, clique
-« Oui », puis revient sur le lanceur**. Conçu pour consommer quasiment rien (le scan ne tourne que
+*« En attente de la réponse de &lt;pseudo&gt; »*, il **bascule sur la fenêtre du receveur, valide avec
+Entrée, puis revient sur le lanceur**. Conçu pour consommer quasiment rien (le scan ne tourne que
 lorsque le popup est présent).
+
+- **Liste blanche par perso** (colonne *A-Trade* dans l'onglet Comptes) : choisis **quels persos**
+  acceptent auto les échanges (ex. seulement ta mule). Les persos décochés ne déclenchent **aucun switch**.
+- **Exclusion des défis** : un défi (même bouton orange qu'un échange) ne déclenche plus l'A-Trade par erreur.
+
+### 💬 Switch sur MP reçu
+Quand un de tes persos reçoit un **message privé**, DPF **bascule automatiquement sur sa fenêtre**.
+Activable **par perso** via la colonne *Focus MP* (onglet Comptes). Fonctionne via les notifications
+Windows, comme l'A-Switch de combat.
+
+### 🔴 Enregistreur de macro
+Dans l'onglet **Actions**, le bouton **« Rec »** capture tes positions automatiquement : clique Rec,
+puis clique **en jeu** chaque position dans l'ordre — fini l'ajout une par une. (Les clics dans la
+fenêtre DPF sont ignorés, donc cliquer « Stop » ne crée pas de position parasite.)
+
+### 🌍 Multilingue (5 langues)
+Interface complète en **Français, English, Español, Deutsch, Português** — y compris les infobulles,
+les messages de statut et le Diagnostic. Change la langue dans **Paramètres → Affichage** (DPF
+redémarre tout seul pour l'appliquer).
 
 ### Le reste
 - **Macros** : une ou plusieurs positions cliquées dans l'ordre, déclenchées par une touche (option boucle).
 - **Presets d'ordre (initiative)** : mémorise un ordre de fenêtres, rechargeable par bouton ou raccourci.
 - **Raccourcis personnalisés (clavier + souris)** : fenêtre suivante / précédente, retour direct,
-  perso favori, valider échange, chrono, overlay, A-Trade… Tu peux aussi assigner la **molette** ou
-  un **bouton latéral** de la souris (jamais le clic gauche/droit).
+  perso favori, valider échange, chrono, overlay, A-Trade, touche « passer le tour »… Tu peux aussi
+  assigner la **molette** ou un **bouton latéral** de la souris (jamais le clic gauche/droit).
 - **Messages par perso** : envoie un message ciblé à une ou plusieurs fenêtres.
-- **Invitations de groupe** acceptées automatiquement.
-- **Favori ⭐** (un seul à la fois), renommage des persos, réorganisation par glisser-déposer.
+- **Invitations de groupe** acceptées automatiquement (via Entrée, plus aucune position à capturer).
+- **Favori ⭐** (un seul à la fois), **alias d'affichage** des persos (ne touche pas au nom dans Dofus),
+  réorganisation par glisser-déposer.
+- **Diagnostic + état de santé** : l'onglet Debug vérifie en un coup d'œil ce qui cloche (numpy/A-Trade,
+  accès notifications, fenêtres détectées, position « Accepter », pseudos A-Trade).
 - **Thème clair / sombre**, overlay épinglé intelligemment (au-dessus de Dofus uniquement).
-- **Export / import** de la configuration, **vérification de mise à jour**, réduction dans la barre système.
+- **Export / import** de la configuration, **notification de mise à jour** (popup avec lien GitHub),
+  réduction dans la barre système.
 
 ---
 
-## 🚀 Installation
+## 📥 Installation
 
 > **Prérequis : Windows + Python 3.12.10** (⚠️ surtout pas 3.13 / 3.14, certaines dépendances ne sont
 > pas encore compatibles).
@@ -89,12 +113,15 @@ lorsque le popup est présent).
 ## 🎮 Utilisation
 
 1. Lance tes fenêtres **Dofus Retro**, puis DPF.
-2. Onglet **Fenêtres** : tes persos sont détectés tout seuls. Renomme, réorganise (glisser-déposer),
-   mets-en un en favori ⭐, ou enregistre un **preset d'ordre**.
-3. Onglet **Échange** : capture la **Position « Oui »** et **« Accepter »** (survole le bouton dans le
-   jeu et clique). Les fenêtres doivent être **empilées au même endroit**.
+2. Onglet **Fenêtres** : tes persos sont détectés tout seuls. Renomme (alias d'affichage), réorganise
+   (glisser-déposer), mets-en un en favori ⭐, ou enregistre un **preset d'ordre**.
+3. Onglet **Comptes** : règle par perso le **Focus Combat**, le **Focus Échange**, l'**Auto-Skip**,
+   la **liste blanche A-Trade** et le **Focus MP**.
 4. Active **A-Switch / A-Skip / A-Trade** depuis l'overlay (ou les onglets).
-5. Crée tes **macros**, **raccourcis** et **messages** dans les onglets dédiés.
+5. Crée tes **macros** (avec l'enregistreur **Rec**), **raccourcis** et **messages** dans les onglets dédiés.
+
+> 💡 Les **acceptations** (échanges, invitations de groupe) se font désormais via la touche **Entrée** :
+> aucune position « Oui » à capturer.
 
 ### Régler l'A-Trade (par image)
 1. Onglet **Échange → AutoTrade par image** → coche **Activer A-Trade**.
@@ -104,8 +131,10 @@ lorsque le popup est présent).
 3. Clique **« Sélectionner la zone (glisser) »** et entoure le **nom** dans le popup
    *« En attente de la réponse de … »* (prends large : le texte est centré, sa position bouge selon la
    longueur du pseudo).
-4. Vérifie que **Position « Oui »** (en haut) tombe bien sur le bouton « Oui » de la demande.
-5. Bouton **« Diagnostic A-Trade »** (pendant un échange) = écrit dans l'onglet **Debug** ce que DPF voit,
+4. (Optionnel) Capture la **Position « Accepter »** en haut de l'onglet si tu utilises la **validation
+   automatique** de l'échange (DPF clique « Accepter » sur l'autre fenêtre quand tu valides la tienne).
+5. Dans l'onglet **Comptes**, coche la colonne **A-Trade** uniquement pour les persos qui doivent accepter.
+6. Bouton **« Diagnostic A-Trade »** (pendant un échange) = écrit dans l'onglet **Debug** ce que DPF voit,
    pratique pour régler.
 
 ---
@@ -115,11 +144,25 @@ lorsque le popup est présent).
 Double-clique sur **`3-Build-EXE.bat`**. L'exécutable se trouvera dans `dist/DofusPouletFlemmards/`.
 Détails : voir **[BUILD-EXE.md](BUILD-EXE.md)**.
 
+**Après le build**, tu peux supprimer les fichiers temporaires de PyInstaller (recréés à chaque build) :
+- le dossier **`build/`**
+- le fichier **`DofusPouletFlemmards.spec`**
+
+Garde uniquement **`dist/DofusPouletFlemmards/`** — c'est ce dossier que tu distribues (en entier, pas juste l'`.exe`).
+
+> 🖱️ **Lancer facilement** : clic droit sur **`DofusPouletFlemmards.exe`** → *Envoyer vers* → *Bureau (créer un raccourci)*.
+> Tu peux ensuite renommer le raccourci et lancer DPF depuis le bureau.
+> ⚠️ **Ne déplace/copie pas l'`.exe` seul** hors de son dossier (il a besoin des fichiers à côté) — crée un **raccourci**, pas une copie.
+
+> ⚠️ Si tu as **lancé l'exe pour tester**, supprime aussi **`dpf_config.json`** et les logs
+> (**`dpf_notif_log.txt`**) créés **à côté de l'exe** avant de partager le dossier : ils contiennent
+> **tes** réglages, raccourcis et pseudos.
+
 ---
 
 ## 📦 Dépendances
 
-PySide6, pywin32, psutil, keyboard, numpy, et les paquets `winrt-*` (notifications & OCR Windows).
+PySide6, pywin32, psutil, keyboard, mouse, numpy, et les paquets `winrt-*` (notifications & OCR Windows).
 Liste complète : **[requirements.txt](requirements.txt)**.
 
 ---
