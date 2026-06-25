@@ -10,11 +10,12 @@
 <p align="center">
   <em>Le tool des flemmards, pour les flemmards.</em><br>
   Assistant de multibox pour <strong>Dofus Retro</strong> — overlay, switch de combat automatique,
-  AutoTrade par image, switch sur MP reçu, enregistreur de macros, presets, raccourcis & messages.
+  AutoTrade par image, switch sur MP reçu, enregistreur de macros, presets, raccourcis, messages
+  & actualités du jeu.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-3.0.5-7C6CF6">
+  <img src="https://img.shields.io/badge/version-4.0.0-7C6CF6">
   <img src="https://img.shields.io/badge/python-3.12.10-blue">
   <img src="https://img.shields.io/badge/langues-FR%20%7C%20EN%20%7C%20ES%20%7C%20DE%20%7C%20PT-success">
   <img src="https://img.shields.io/badge/OS-Windows-0078D6">
@@ -33,6 +34,7 @@ persos dans l'ordre, le perso actif surligné, le chrono, et trois interrupteurs
 - **A-Trade** — accepte les échanges automatiquement (voir plus bas).
 
 Clic sur un pseudo = focus direct sur sa fenêtre. Clic sur le badge **DPF** = afficher/masquer la fenêtre principale.
+L'overlay reste épinglé au-dessus de Dofus de manière fiable (ré-épinglage auto si Windows le décroche).
 
 ### A-Switch (focus de combat auto)
 Passe sur la bonne fenêtre dès que c'est son tour, **via les notifications Windows de Dofus** (aucune
@@ -47,7 +49,21 @@ lorsque le popup est présent).
 
 - **Liste blanche par perso** (colonne *A-Trade* dans l'onglet Comptes) : choisis **quels persos**
   acceptent auto les échanges (ex. seulement ta mule). Les persos décochés ne déclenchent **aucun switch**.
-- **Exclusion des défis** : un défi (même bouton orange qu'un échange) ne déclenche plus l'A-Trade par erreur.
+- **Exclusion des défis et des invitations de groupe** : un défi ou une invitation de groupe (même bouton
+  orange qu'un échange) ne déclenche plus l'A-Trade par erreur.
+
+### 📰 Actualités Dofus Retro *(nouveau en v4)*
+Un onglet dédié qui affiche **les dernières actualités officielles de la semaine**, récupérées
+directement du site Dofus Retro :
+
+- Liste des news des **7 derniers jours** (repli sur les plus récentes s'il n'y a rien cette semaine),
+  avec le nombre affiché dans le titre.
+- **Lecture de l'article complet dans l'app** (accordéon) : **texte intégral + toutes les images**,
+  préchargées pour un affichage net, sans saut, et sans ouvrir le navigateur.
+- Bouton **« Ouvrir le site »** pour la version web (commentaires, etc.).
+- **Suit la langue de DPF** : FR / EN / ES / PT (l'allemand bascule sur l'anglais, le site n'existant
+  qu'en 4 langues).
+- DPF **s'ouvre directement sur cet onglet** au lancement.
 
 ### 💬 Switch sur MP reçu
 Quand un de tes persos reçoit un **message privé**, DPF **bascule automatiquement sur sa fenêtre**.
@@ -62,7 +78,7 @@ fenêtre DPF sont ignorés, donc cliquer « Stop » ne crée pas de position par
 ### 🌍 Multilingue (5 langues)
 Interface complète en **Français, English, Español, Deutsch, Português** — y compris les infobulles,
 les messages de statut et le Diagnostic. Change la langue dans **Paramètres → Affichage** (DPF
-redémarre tout seul pour l'appliquer).
+redémarre tout seul pour l'appliquer). Les **actualités** suivent aussi la langue choisie.
 
 ### Le reste
 - **Macros** : une ou plusieurs positions cliquées dans l'ordre, déclenchées par une touche (option boucle).
@@ -75,10 +91,12 @@ redémarre tout seul pour l'appliquer).
 - **Favori ⭐** (un seul à la fois), **alias d'affichage** des persos (ne touche pas au nom dans Dofus),
   réorganisation par glisser-déposer.
 - **Diagnostic + état de santé** : l'onglet Debug vérifie en un coup d'œil ce qui cloche (numpy/A-Trade,
-  accès notifications, fenêtres détectées, position « Accepter », pseudos A-Trade).
-- **Thème clair / sombre**, overlay épinglé intelligemment (au-dessus de Dofus uniquement).
+  accès notifications, fenêtres détectées, position « Accepter », pseudos A-Trade). Bouton
+  **« Copier le diagnostic »** pour l'envoyer facilement au support.
+- **Thème clair / sombre** + **couleur d'accent personnalisable** (boutons, surbrillances…),
+  overlay épinglé intelligemment (au-dessus de Dofus uniquement).
 - **Export / import** de la configuration, **notification de mise à jour** (popup avec lien GitHub),
-  réduction dans la barre système.
+  réduction & **redémarrage** depuis la barre système.
 
 ---
 
@@ -112,7 +130,8 @@ redémarre tout seul pour l'appliquer).
 
 ## 🎮 Utilisation
 
-1. Lance tes fenêtres **Dofus Retro**, puis DPF.
+1. Lance tes fenêtres **Dofus Retro**, puis DPF. DPF s'ouvre sur l'onglet **Actualités** ;
+   passe sur **Fenêtres** pour piloter tes persos.
 2. Onglet **Fenêtres** : tes persos sont détectés tout seuls. Renomme (alias d'affichage), réorganise
    (glisser-déposer), mets-en un en favori ⭐, ou enregistre un **preset d'ordre**.
 3. Onglet **Comptes** : règle par perso le **Focus Combat**, le **Focus Échange**, l'**Auto-Skip**,
@@ -127,7 +146,8 @@ redémarre tout seul pour l'appliquer).
 1. Onglet **Échange → AutoTrade par image** → coche **Activer A-Trade**.
 2. Mets un fichier **`<pseudo>.png`** par perso dans le dossier `SCREENSHOT-ECHANGE`
    (bouton *Ouvrir le dossier*). Ce sont des captures du **nom du perso** tel qu'il apparaît dans le popup.
-   Les mêmes fichiers que la version AHK fonctionnent.
+   > ⚠️ **Refais tes captures directement via DPF et supprime les anciennes** (notamment celles de la
+   > version AHK) : elles ne sont plus garanties compatibles.
 3. Clique **« Sélectionner la zone (glisser) »** et entoure le **nom** dans le popup
    *« En attente de la réponse de … »* (prends large : le texte est centré, sa position bouge selon la
    longueur du pseudo).
@@ -135,14 +155,14 @@ redémarre tout seul pour l'appliquer).
    automatique** de l'échange (DPF clique « Accepter » sur l'autre fenêtre quand tu valides la tienne).
 5. Dans l'onglet **Comptes**, coche la colonne **A-Trade** uniquement pour les persos qui doivent accepter.
 6. Bouton **« Diagnostic A-Trade »** (pendant un échange) = écrit dans l'onglet **Debug** ce que DPF voit,
-   pratique pour régler.
+   pratique pour régler. Bouton **« Copier le diagnostic »** pour l'envoyer au support.
 
 ---
 
 ## 🧱 Générer un .exe (optionnel)
 
 Double-clique sur **`3-Build-EXE.bat`**. L'exécutable se trouvera dans `dist/DofusPouletFlemmards/`.
-Détails : voir **[BUILD-EXE.md](BUILD-EXE.md)**.
+D�tails : voir **[BUILD-EXE.md](BUILD-EXE.md)**.
 
 **Après le build**, tu peux supprimer les fichiers temporaires de PyInstaller (recréés à chaque build) :
 - le dossier **`build/`**
