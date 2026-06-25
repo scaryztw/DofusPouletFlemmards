@@ -145,7 +145,8 @@ redémarre tout seul pour l'appliquer). Les **actualités** suivent aussi la lan
 ### Régler l'A-Trade (par image)
 1. Onglet **Échange → AutoTrade par image** → coche **Activer A-Trade**.
 2. Mets un fichier **`<pseudo>.png`** par perso dans le dossier `SCREENSHOT-ECHANGE`
-   (bouton *Ouvrir le dossier*). Ce sont des captures du **nom du perso** tel qu'il apparaît dans le popup.
+   (situé dans **`Documents\DofusPouletFlemmards\SCREENSHOT-ECHANGE`** — bouton *Ouvrir le dossier*
+   pour y accéder directement). Ce sont des captures du **nom du perso** tel qu'il apparaît dans le popup.
    > ⚠️ **Refais tes captures directement via DPF et supprime les anciennes** (notamment celles de la
    > version AHK) : elles ne sont plus garanties compatibles.
 3. Clique **« Sélectionner la zone (glisser) »** et entoure le **nom** dans le popup
